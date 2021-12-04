@@ -7,6 +7,7 @@ namespace Stacks_and_Queues
     {
         static void Main(string[] args)
         {
+            //Stacks
             Stack<int> stack = new Stack<int>();
             stack.Push(1);
             Console.WriteLine("Top value in the stack is: {0}", stack.Peek());
@@ -40,6 +41,40 @@ namespace Stacks_and_Queues
                 Console.Write("{0} ", myStack.Pop());
             }
 
+            //Queues
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(1);
+            Console.WriteLine("The value at the front of the queue is: {0}", queue.Peek());
+            queue.Enqueue(2);
+            Console.WriteLine("The value at the front of the queue is: {0}", queue.Peek());
+            queue.Enqueue(3);
+            Console.WriteLine("The value at the front of the queue is: {0}", queue.Peek());
+            int queueItem = queue.Dequeue();
+            Console.WriteLine("DeQueueed item: {0}", queueItem);
+            Console.WriteLine("The value at the front of the queue is: {0}", queue.Peek());
+
+            while (queue.Count > 0)
+            {
+                Console.WriteLine("DeQueueed item: {0}", queue.Dequeue());
+            }
+
+
+        }
+    }
+
+    class Order
+    {
+        public int OrderId { get; set; }
+        public int OrderQuality { get; set; }
+        public Order(int id, int orderQuantity)
+        {
+            OrderId = id;
+            OrderQuality = orderQuantity;
+        }
+
+        public void ProcessOrder()
+        {
+            Console.WriteLine($"Order {OrderId} processed!");
         }
     }
 }
